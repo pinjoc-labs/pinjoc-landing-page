@@ -1,8 +1,11 @@
+import { AnimatedGradientText } from "@/components/ui/animate-gradient-text";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { DotPattern } from "@/components/ui/dot-pattern";
+import { SpinningText } from "@/components/ui/spinning-text";
 import { classMerge } from "@/util/class-merge";
 import Link from "next/link";
+import TextTop from "./_components/text-top";
 
 const DEFI_PROBLEMS = [
 	{
@@ -69,21 +72,31 @@ export default function Home() {
 						"[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] ",
 					)}
 				/>
+
 				<div className="max-w-full w-full h-screen flex items-center justify-center">
 					<div className="w-2/3 space-y-4">
+						<TextTop label="Best DeFi CLOB in Indonesia" />
 						<h1 className="text-7xl font-extrabold text-white text-center">
 							A DeFi platform revolutionizing CLOB for borrowers and lenders.
 						</h1>
-						<span className="text-center text-white block text-3xl">
+						<span className="text-center text-white/50 block text-2xl">
 							enabling seamless, transparent, and decentralized debt trading.
 						</span>
 						<div className="w-full flex items-center justify-center mt-10">
 							<Link href={"https://pinjoc.vercel.app/"}>
-								<Button className="text-lg py-6 px-5">Launch App</Button>
+								<Button className="text-lg py-6 px-5 rounded-full">
+									Launch App
+								</Button>
 							</Link>
 						</div>
 					</div>
 				</div>
+				<SpinningText className="text-white absolute top-1/4 left-24">
+					Etherium • Bitcoin • Chainlink •
+				</SpinningText>
+				<SpinningText className="text-white absolute bottom-1/6 right-24">
+					Solana • Dogi • Pepe •
+				</SpinningText>
 			</div>
 			<section className="w-full h-screen flex items-center justify-center">
 				<Container>
@@ -106,6 +119,7 @@ export default function Home() {
 					</div>
 				</Container>
 			</section>
+			{/* Section Two */}
 			<section className="h-screen flex items-center justify-center">
 				<Container className="h-full">
 					<div className="w-full h-full flex items-center justify-center">

@@ -1,30 +1,26 @@
 "use client";
 
-import { useScroll } from "@/hook/use-scroll";
-import { classMerge } from "@/util/class-merge";
 import React from "react";
-import Container from "./container";
 import Link from "next/link";
 import { Button } from "./button";
+import Logo from "./logo";
 
 export const Navbar = () => {
-  const { isScrolled } = useScroll();
-
   return (
-    <header
-      className={classMerge(
-        "max-w-full border fixed w-full transition-transform duration-300 z-50",
-        isScrolled ? "border-b-[#292929] bg-[#111]" : "border-transparent"
-      )}
-    >
-      <Container className="flex items-center justify-between gap-3 text-white h-14">
-        <h4 className="text-white text-2xl font-semibold">PINJOC</h4>
-        <Link href={"https://pinjoc.vercel.app/"}>
-          <Button className="px-4 py-2 rounded-full cursor-pointer">
-            Launch App
-          </Button>
-        </Link>
-      </Container>
+    <header className="fixed w-full mt-8 top-0 z-50">
+      <div className="container mx-auto max-w-5xl">
+        <div className="flex items-center justify-center border border-white/15 py-3 px-6 rounded-full backdrop-blur-2xl">
+          <div className="flex items-center w-full justify-between">
+            <h1 className="text-white text-3xl uppercase font-extrabold">
+              pinj
+              <Logo width={40} height={40} />c
+            </h1>
+            <Link href={"https://pinjoc.vercel.app/"}>
+              <Button className="rounded-full">Launch App</Button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </header>
   );
 };
