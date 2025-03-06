@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { classMerge } from "@/util/class-merge";
+import Link from "next/link";
 
 const DEFI_PROBLEMS = [
 	{
@@ -77,7 +78,9 @@ export default function Home() {
 							enabling seamless, transparent, and decentralized debt trading.
 						</span>
 						<div className="w-full flex items-center justify-center mt-10">
-							<Button className="text-lg py-6 px-5">Launch App</Button>
+							<Link href={"https://pinjoc.vercel.app/"}>
+								<Button className="text-lg py-6 px-5">Launch App</Button>
+							</Link>
 						</div>
 					</div>
 				</div>

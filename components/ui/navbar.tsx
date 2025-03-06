@@ -4,6 +4,8 @@ import { useScroll } from "@/hook/use-scroll";
 import { classMerge } from "@/util/class-merge";
 import React from "react";
 import Container from "./container";
+import Link from "next/link";
+import { Button } from "./button";
 
 export const Navbar = () => {
   const { isScrolled } = useScroll();
@@ -17,9 +19,11 @@ export const Navbar = () => {
     >
       <Container className="flex items-center justify-between gap-3 text-white h-14">
         <h4 className="text-white text-2xl font-semibold">PINJOC</h4>
-        <button className="inline-flex bg-purple-700 text-white px-4 py-2 rounded-full hover:bg-purple-600 transition-colors duration-300 cursor-pointer">
-          Launch App
-        </button>
+        <Link href={"https://pinjoc.vercel.app/"}>
+          <Button className="px-4 py-2 rounded-full cursor-pointer">
+            Launch App
+          </Button>
+        </Link>
       </Container>
     </header>
   );
