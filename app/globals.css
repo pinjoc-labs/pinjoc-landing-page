@@ -4,6 +4,8 @@
 	--background: #111;
 }
 
+@plugin "tailwindcss-animate";
+
 @theme inline {
 	--color-background: var(--background);
 	--font-sans: var(--font-geist-sans);

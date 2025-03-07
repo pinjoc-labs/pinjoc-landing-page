@@ -1,5 +1,6 @@
 import { classMerge } from "@/util/class-merge";
 import Image from "next/image";
+import PinjocLogo from "@/assets/images/logo.png";
 
 const Logo = ({
   width = 30,
@@ -12,7 +13,7 @@ const Logo = ({
 }) => {
   return (
     <Image
-      src={"/images/logo.png"}
+      src={PinjocLogo}
       alt="logo"
       width={width}
       height={height}
