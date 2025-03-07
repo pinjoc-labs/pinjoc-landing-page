@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { DotPattern } from "@/components/ui/dot-pattern";
@@ -6,7 +8,9 @@ import MarqueeVertical from "@/components/ui/marquee-vertical";
 import { SpinningText } from "@/components/ui/spinning-text";
 import { TextReveal } from "@/components/ui/text-reveal";
 import { classMerge } from "@/util/class-merge";
+import { motion } from "motion/react";
 import Link from "next/link";
+import { useRef } from "react";
 import TextTop from "./_components/text-top";
 
 const DEFI_PROBLEMS = [
@@ -62,6 +66,8 @@ const DEFI_SOLUTIONS = [
 ];
 
 export default function Home() {
+	const ref = useRef(null);
+
 	return (
 		<div className="w-full min-h-screen">
 			{/* Hero Section */}
@@ -77,9 +83,9 @@ export default function Home() {
 					)}
 				/>
 				<div className="max-w-full w-full h-screen flex items-center justify-center">
-					<div className="w-2/3 space-y-4">
+					<div className="w-3/4 space-y-4">
 						<TextTop label="Best DeFi CLOB in Indonesia" />
-						<h1 className="text-7xl font-extrabold text-white text-center">
+						<h1 className="text-7xl font-extrabold text-white text-center mt-8">
 							A DeFi platform revolutionizing CLOB for borrowers and lenders.
 						</h1>
 						<span className="text-center text-white/50 block text-2xl">
@@ -115,8 +121,11 @@ export default function Home() {
 			{/* End Introduction Pinjoc */}
 
 			{/* Section Problem */}
-			<section className="w-full py-10 flex items-center justify-center">
-				<Container>
+			<section
+				ref={ref}
+				className="w-full py-10 flex items-center justify-center"
+			>
+				<div className="container">
 					<div className="w-full">
 						<h1 className="text-white text-3xl text-center">
 							DeFi Lending{" "}
@@ -126,21 +135,27 @@ export default function Home() {
 						</h1>
 					</div>
 					<div className="flex items-center justify-center gap-5 mt-10">
-						{DEFI_PROBLEMS.map((item) => (
-							<div
-								key={item.title}
-								className="hover:bg-gray-950 p-5 bg-[#181818] border border-[#232323] rounded-xl w-72 h-64"
-							>
-								<h1 className="text-white text-xl font-semibold">
-									{item.title}
-								</h1>
-								<span className="text-gray-300 mt-2 text-justify line-clamp-1 block">
-									{item.description}
-								</span>
-							</div>
-						))}
+						{DEFI_PROBLEMS.map((item, index) => {
+							return (
+								<motion.div
+									key={item.title}
+									className="hover:bg-gray-950 p-5 bg-[#181818] border border-[#232323] rounded-xl w-72 h-64"
+									initial={{ opacity: 0, y: 50 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true, amount: 0.5 }}
+									transition={{ duration: 0.5, delay: index * 0.3 }}
+								>
+									<h1 className="text-white text-xl font-semibold">
+										{item.title}
+									</h1>
+									<span className="text-gray-300 mt-2 text-justify block">
+										{item.description}
+									</span>
+								</motion.div>
+							);
+						})}
 					</div>
-				</Container>
+				</div>
 			</section>
 			{/* Section Problem */}
 

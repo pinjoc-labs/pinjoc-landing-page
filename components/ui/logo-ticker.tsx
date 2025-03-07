@@ -48,7 +48,7 @@ const LogoTicker = () => {
     <section className="overflow-x-clip">
       <div className="container mx-auto">
         <h3 className="text-center text-white/50 text-xl">
-          Collaboration With
+          Collaboration With 🤝
         </h3>
         <div className="overflow-hidden mt-12 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <motion.div
